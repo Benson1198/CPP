@@ -14,6 +14,17 @@ struct Node{
     }
 }
 
+
+// Inorder Traversals
+void inorder(Node *root){
+    if(root != NULL){
+        inorder(root->left);
+        cout << root->data << " ";
+        inorder(root->right);
+    }
+}
+
+
 int main(){
     Node *root = new Node(10);
 }
