@@ -15,12 +15,21 @@ struct Node{
 }
 
 
-// Inorder Traversals
+// Inorder Traversal
 void inorder(Node *root){
     if(root != NULL){
         inorder(root->left);
         cout << root->data << " ";
         inorder(root->right);
+    }
+}
+
+// Preorder Traversal
+void preorder(Node *root){
+    if(root != NULL){
+        cout << root->data << " ";
+        preorder(root->left);
+        preorder(root->right);
     }
 }
 
