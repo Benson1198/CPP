@@ -34,6 +34,16 @@ void preorder(Node *root){
 }
 
 
+// Postorder Traversal
+void postorder(Node *root){
+    if(root != NULL){
+        postorder(root->left);
+        postorder(root->right);
+        cout << root->data << " ";
+    }
+}
+
+
 int main(){
     Node *root = new Node(10);
 }
