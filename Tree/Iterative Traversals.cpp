@@ -35,6 +35,34 @@ void inorder(Node *root){
 }
 
 
+void preOrder(Node *root){
+    if(root == NULL){
+        return;
+    }
+    
+    stack <Node *> st;
+
+    st.push(root);
+
+    while(st.empty() == false){
+        Node *curr = st.top();
+        cout << curr->data << " ";
+        s.pop();
+
+        if(curr->right != NULL){
+            st.push(curr->right);
+        }
+
+        if(curr->left != NULL){
+            st.push(curr->left);
+        }
+    }
+}
+
+
+// Space optimized Preorder Traversal
+
+
 int main(){
 
 }
