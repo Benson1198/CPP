@@ -15,7 +15,7 @@ struct Node{
 }
 
 
-int height(Node *root,int count){
+int height(Node *root){
     if(root == NULL){
         return 0;
     }
