@@ -61,7 +61,26 @@ void preOrder(Node *root){
 
 
 // Space optimized Preorder Traversal
+void preorderOpt(Node *root){
+    stack <Node *> st;
 
+    Node *curr = root;
+
+    while(curr != NULL || st.empty() == false){
+        while(curr != NULL){
+            cout << curr->data << " ";
+            if(curr->right != NULL){
+                s.push(curr->right);
+            }
+            curr = curr->left;
+        }
+
+        if(st.empty() == false){
+            curr = s.top();
+            s.pop();
+        }
+    }
+}
 
 int main(){
 
