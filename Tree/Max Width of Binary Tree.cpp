@@ -20,7 +20,7 @@ int maxWidth(Node *root){
         return 0;
     }
 
-    int max_width = INT_MIN;
+    int max_width = 0;
     
     queue <Node*> q;
     q.push(root);
