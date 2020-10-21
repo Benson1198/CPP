@@ -31,7 +31,7 @@ void printLeft(Node *root){
         int count = q.size();
 
         for(int i=0;i<count;i++){
-            Node *curr = q.top();
+            Node *curr = q.front();
             q.pop();
 
             if(i==0){
