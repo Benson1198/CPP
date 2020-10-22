@@ -26,36 +26,40 @@ struct Node{
 
 // This method uses two stacks
 
-void spiralOrder(Node *root){
-    if(root == NULL){
-        return;
-    }
+vector <int> zigZagTraversal(Node* root)
+{
+	vector<int> ans;
+   
+   if(root == NULL){
+        return ans;
+   }
     
     stack <Node*> s1;
     stack <Node*> s2;
 
     s1.push(root);
 
-    while(s1.empty() == false || s2.empty() == false){
-        while(s1.empty() == false){
+    while(!s1.empty() || !s2.empty()){
+        while(!s1.empty()){
             Node *curr = s1.top();
             s1.pop();
 
-            cout << curr->data << " ";
-
-            s2.push(curr->left);
-            s2.push(curr->right);
+            ans.push_back(curr->data);
+            
+            if(curr->left)s2.push(curr->left);
+            if(curr->right)s2.push(curr->right);
         }
 
-        while(s2.empty() == false){
+        while(!s2.empty()){
             Node *curr = s2.top();
             s2.pop();
 
-            cout << curr->data << " ";
+            ans.push_back(curr->data);
 
-            s1.push(curr->right);
-            s1.push(curr->left);
+            if(curr->right)s1.push(curr->right);
+            if(curr->left)s1.push(curr->left);
         }
     }
     
+    return ans;
 }
