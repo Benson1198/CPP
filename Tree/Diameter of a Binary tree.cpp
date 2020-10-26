@@ -56,3 +56,6 @@ int diameter2(Node *root){
 
     return 1+max(lh,rh);
 }
+
+
+In this approach we use a map
