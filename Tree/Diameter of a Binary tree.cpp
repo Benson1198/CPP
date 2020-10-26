@@ -45,12 +45,12 @@ int diameter(Node *root){
 
 int res = 0;
 
-int height(Node *root){
+int diameter2(Node *root){
     if(root == NULL)return 0;
 
-    int lh = height(root->left);
+    int lh = diameter2(root->left);
 
-    int rh = height(root->right);
+    int rh = diameter2(root->right);
 
     res = max(res,(1+lh+rh));
 
