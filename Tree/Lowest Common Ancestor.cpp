@@ -61,7 +61,7 @@ int findLCA(Node *root, int n1, int n2)
 
 Node *lca(Node *root,int n1,int n2){
     if(root == NULL){
-        retrun NULL;
+        return NULL;
     }
 
     if(root->key == n1 || root->key == n2){
