@@ -33,7 +33,7 @@ int countNodes(Node *root){
     }
 
     if(rh == lh){
-        return pow(2,lh);
+        return pow(2,lh)-1;
     }
 
     else{
