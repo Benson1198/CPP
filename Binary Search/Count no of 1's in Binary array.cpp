@@ -6,7 +6,7 @@ int countOnes(int arr[],int n){
     int low=0, high=n-1;
 
     while(low<=high){
-        int mid = (high-low)/2;
+        int mid = (high+low)/2;
 
         if(arr[mid] == 0){
             low =  mid+1;

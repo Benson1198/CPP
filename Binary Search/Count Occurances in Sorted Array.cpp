@@ -10,7 +10,7 @@ int firstOcr(int arr[],int n,int x){
     int low=0, high=n-1;
 
     while(low<=high){
-        int mid = (high-low)/2;
+        int mid = (high+low)/2;
 
         if(arr[mid] > x){
             high =  mid-1;
@@ -37,7 +37,7 @@ int lastOcr(int arr[],int n,int x){
     int low=0, high=n-1;
 
     while(low<=high){
-        int mid = (high-low)/2;
+        int mid = (high+low)/2;
 
         if(arr[mid] > x){
             high =  mid-1;

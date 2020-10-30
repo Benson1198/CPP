@@ -6,7 +6,7 @@ int sqRootFloor(int n){
     int low =1,high =n,ans= -1;
 
     while(low <= high){
-        int mid = (high-low)/2;
+        int mid = (high+low)/2;
         int mSq = mid*mid;
 
         if(mSq == x){
