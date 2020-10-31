@@ -2,40 +2,59 @@
 
 using namespace std;
 
+int helper(vector<int> arr){
+	int n = arr.size();
+	if(n == 1){
+		return 0;
+	}
+	else if(n == 2){
+		return (arr[1] - arr[0]);
+	}
+
+	else{
+		int d = arr[1] - arr[0];
+		for(int i=1;i<n-1;i++){
+			if(arr[i] + d != arr[i+1]){
+				return -1;
+			}
+		}
+		return d;
+	}
+}
+
 int main(){
-	int n;
+	int n,count=0;
 	cin >> n;
 
 	int arr[n];
 
-	set <int> st;
-
-	unordered_map <int, vector<int> > mp;
-
 	for(int i=0;i<n;i++){
-		int temp;	
-		cin >> temp;
-		
-		arr[i] = temp;
-		st.insert(temp);
+		cin >> arr[i];
 	}
 
+	map <int, vector<int> > mp;
 
 	for(int i=0;i<n;i++){
-		mp[arr[i]].push_back(i);
+		if ( mp.find(arr[i]) == mp.end()){
+			mp.insert({arr[i],{i}});
+		} 
+		else {
+			mp[arr[i]].push_back(i);
+		}
 	}
     
-    cout << st.size() << endl;
+    for (auto i : mp){
+		if(helper(i.second) != -1){
+			count++;
+		}
+	} 
     
-    set <int> :: iterator itr;
+    cout << count << endl;
     
-	for (itr = st.begin(); itr != st.end(); ++itr) 
-    { 
-    	if(mp[*itr].size() == 1){
-    		cout << *itr << " " << 0 << endl;
-    	}
-    	else{
-    		cout << *itr << " " << abs(mp[*itr][0] - mp[*itr][1]) << endl;
-    	}
-    }
+    for (auto i : mp){
+		if(helper(i.second) != -1){
+			cout << i.first << " " << helper(i.second)  << endl;
+		}
+	}   
+    
 }
