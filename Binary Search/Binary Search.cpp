@@ -8,7 +8,7 @@ int binSearchItr(int arr[],int n,int k){
 
     while (low <= high)
     {
-        int mid = (low+high)/2;
+        int mid = low + (high-low)/2;
 
         if(arr[mid] == k){
             return mid;
