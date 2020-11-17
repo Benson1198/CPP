@@ -27,6 +27,6 @@ int numOfRotations(int arr[],int n){
 
         else if(arr[mid] <= arr[high]){
             high = mid-1;
-        }
+    
     }
 }

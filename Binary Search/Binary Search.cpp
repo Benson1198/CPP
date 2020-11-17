@@ -22,7 +22,7 @@ int binSearchItr(int arr[],int n,int k){
         }
     }
 
-    return -1
+    return -1;
     
 }
 
