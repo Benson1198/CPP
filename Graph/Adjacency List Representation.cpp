@@ -2,8 +2,8 @@
 using namespace std;
 
 void addEdge(vector<int> adj[],int u, int v){
-    adj[u].pushback(v);
-    adj[v].pushback(u);
+    adj[u].push_back(v);
+    adj[v].push_back(u);
 }
 
 void printGraph(vector<int>adj[],int v){
