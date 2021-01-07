@@ -33,3 +33,51 @@ bool CycleDetectDFS(vector<int> adj[], int v){
 
 	return false;
 }
+
+
+// Detecting a cycle using BFS
+
+bool BFSutil(vector<int> adj[], int s,int v, bool visited[]){
+    vector<int> parent(V, -1);
+
+    queue<int> q;
+
+    visited[s] = true;
+    q.push(s);
+
+    while(q.empty() == false){
+        int temp = q.front();
+        q.pop();
+
+        for(int x: adj[temp]){
+            if(visited[x] == false){
+                visited[x] = true;
+                q.push(temp);
+
+                parent[x] = temp;
+            }
+
+            else if(parent[temp] != x){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+
+bool isCyclicDisconntected(vector<int> adj[], int v) 
+{ 
+    
+    bool visited[v];
+
+    for(int i = 0; i<v;i++){
+		visited[i] = false;
+	}
+  
+    for (int i = 0; i < V; i++) 
+        if (!visited[i] && BFSutil(adj, i, V, visited)){
+            return true; 
+        } 
+    return false; 
+}
