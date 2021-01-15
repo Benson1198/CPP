@@ -44,7 +44,7 @@ void DFSutil(vector<int> adj[],int s,bool visited[], stack<int> &st){
 
     for(int x: adj[s]){
         if(visited[x] == false){
-            DFSutil(adj,x,visited);
+            DFSutil(adj,x,visited,st);
         }
 
         st.push(x);
