@@ -27,17 +27,15 @@ public:
         }
         dist[src] = 0;
 
-        for(int i=1;i<= V-1;i++){
-            for(int j=0;j<E;j++){
-                int u = graph->edge[j].src;
-                int v = graph->edge[j].dest;
-                int weight = graph->edge[j].weight;
-
-                if(dist[u] != INT_MAX && dist[u] + weight > dist[v]){
-                    dist[v] = dist[u] + weight;
-                }
-            }
-        }
+        for (int i = 1; i <= V - 1; i++) { 
+    		for (int j = 0; j < E; j++) { 
+    			int u = graph->edge[j].src; 
+    			int v = graph->edge[j].dest; 
+    			int weight = graph->edge[j].weight; 
+    			if (dist[u] != INT_MAX && dist[u] + weight < dist[v]) 
+    				dist[v] = dist[u] + weight; 
+    		} 
+	}
 
         for (int i = 0; i < E; i++) { 
             int u = graph->edge[i].src; 
@@ -66,8 +64,8 @@ public:
         if(bellmanFord(graph, 0)){
             return 1;
         }
-        
-        return 0;
-
+        else{
+            return 0;
+        }
 	}
 };
